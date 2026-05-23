@@ -1,18 +1,38 @@
 package at.technikumwien;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
-        //Miklas war hier
+        System.out.printf("*** Tic Tac Toe *** \n");
+
+        Board board = new Board();
+        Player player1 = new Player('X');
+        Player player2 = new Player('O');
+
+        System.out.println(player1.getMarker());
+
+        System.out.println();
+        System.out.printf("Current Player: %c\n", player1.getMarker());
+        board.print();
+
+        System.out.println("row (0-2): ");
+        int inputRow = sc.nextInt();
+        System.out.println("col (0-2): ");
+        int inputCol = sc.nextInt();
+
+        board.place(inputRow, inputCol, player1.getMarker());
+        board.print();
+
+
     }
+
+    public static void startGame(){
+        Board startBoard = new Board();
+        startBoard.print();
+    }
+
 }
