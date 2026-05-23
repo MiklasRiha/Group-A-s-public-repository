@@ -11,7 +11,7 @@ public class Board {
 
     // Methods Class Diagram
     public boolean isCellEmpty(int x, int y){
-        char cellContent = cells[x][y];
+        char cellContent = this.cells[x][y];
 
         if (cellContent == '\0'){
             return true;
@@ -21,14 +21,13 @@ public class Board {
     }
 
     public void place (int x, int y, char marker){
-        char cellPosition = cells[x][y];
-        cellPosition = marker;
+        this.cells[x][y] = marker;
     }
 
     public boolean isFull() {
-        for (int row = 0; row < cells[row].length; row++) {
-            for (int col = 0; col < cells.length; col++) {
-                if (cells[row][col] == '\0') {
+        for (int row = 0; row < this.cells.length; row++) {
+            for (int col = 0; col < this.cells[row].length; col++) {
+                if (this.cells[row][col] == '\0') {
                     return false;
                 }
             }
@@ -39,10 +38,10 @@ public class Board {
     public void print(){
         System.out.println("_______");
 
-        for (int line = 0; line < cells.length; line++){
-            for (int i = 0; i < cells[line].length; i++){
+        for (int line = 0; line < this.cells.length; line++){
+            for (int i = 0; i < this.cells[line].length; i++){
                 System.out.print("|");
-                System.out.print(cells[line][i]);
+                System.out.print(this.cells[line][i]);
             }
             System.out.print("|");
             System.out.println();
