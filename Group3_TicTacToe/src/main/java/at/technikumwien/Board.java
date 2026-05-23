@@ -21,7 +21,11 @@ public class Board {
     }
 
     public void place (int x, int y, char marker){
-        this.cells[x][y] = marker;
+        if (isCellEmpty(x,y)){
+            this.cells[x][y] = marker;
+        } else {
+            System.out.println(this.cells[x][y]);
+        }
     }
 
     public boolean isFull() {
