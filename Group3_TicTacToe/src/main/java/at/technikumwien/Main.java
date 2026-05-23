@@ -12,8 +12,6 @@ public class Main {
     public static void startGame(){
         Board startBoard = new Board();
         startBoard.print();
-        System.out.println(startBoard.isCellEmpty(0,0));
-        System.out.println(startBoard.isFull());
     }
 
 }

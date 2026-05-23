@@ -9,8 +9,7 @@ public class Board {
 
     }
 
-
-    // Methods
+    // Methods Class Diagram
     public boolean isCellEmpty(int x, int y){
         char cellContent = cells[x][y];
 
