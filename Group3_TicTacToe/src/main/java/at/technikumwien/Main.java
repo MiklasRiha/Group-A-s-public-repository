@@ -7,32 +7,51 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("*** Tic Tac Toe *** \n");
+        boolean playAgain = true;
 
-        Board board = new Board();
-        Player player1 = new Player('X');
-        Player player2 = new Player('O');
+        while (playAgain) {
 
-        System.out.println(player1.getMarker());
+        // game initialize - newGame holds player and board data
+        TicTacToe newGame = new TicTacToe();
+        newGame.player1 = new Player('X');
+        newGame.player2 = new Player('O');
+        newGame.board = new Board();
 
-        System.out.println();
-        System.out.printf("Current Player: %c\n", player1.getMarker());
-        board.print();
+        // print msg
+        newGame.start();
 
-        System.out.println("row (0-2): ");
-        int inputRow = sc.nextInt();
-        System.out.println("col (0-2): ");
-        int inputCol = sc.nextInt();
+        // game loop - place holder - 9 possible moves in total - has to be updated to
+        int turnCounter = 0;
 
-        board.place(inputRow, inputCol, player1.getMarker());
-        board.print();
+        while (turnCounter < 9){
+            System.out.println("Current Player: " + newGame.currentPlayer.getMarker());
+            newGame.board.print();
 
+            System.out.println("row (0-2): ");
+            int rowInput = sc.nextInt();    // no wrong Input check
 
+            System.out.println("col (0-2): ");
+            int colInput = sc.nextInt();    // no wrong Input check
+
+            newGame.board.place(rowInput, colInput, newGame.currentPlayer.getMarker());
+
+            newGame.switchCurrentPlayer();
+            turnCounter++;
+        }
+
+            System.out.println("Game ended.");
+            System.out.println("Do you want to start a new game? (y/n)");
+
+            String answer = sc.next();
+
+            if (answer.equalsIgnoreCase("y")) {
+                playAgain = true;
+            } else {
+                playAgain = false;
+            }
+        }
+
+        System.out.println("Thanks for playing!");
+        sc.close();
     }
-
-    public static void startGame(){
-        Board startBoard = new Board();
-        startBoard.print();
-    }
-
 }
