@@ -23,11 +23,15 @@ public class Main {
             System.out.println("Current Player: " + newGame.currentPlayer.getMarker());
             newGame.board.print();
 
-            System.out.println("row (0-2): ");
-            int rowInput = sc.nextInt();    // no wrong Input check
-            System.out.println("col (0-2): ");
-            int colInput = sc.nextInt();    // no wrong Input check
-            newGame.board.place(rowInput, colInput, newGame.currentPlayer.getMarker());
+            boolean legalMove;
+            do {
+                System.out.println("row (0-2): ");
+                int rowInput = sc.nextInt();    // no wrong Input check
+                System.out.println("col (0-2): ");
+                int colInput = sc.nextInt();    // no wrong Input check
+                legalMove = newGame.board.place(rowInput, colInput, newGame.currentPlayer.getMarker());
+            } while(!legalMove);
+
 
             newGame.switchCurrentPlayer();
             turnCounter++;

@@ -20,11 +20,13 @@ public class Board {
         }
     }
 
-    public void place (int x, int y, char marker){
+    public boolean place (int x, int y, char marker){
         if (isCellEmpty(x,y)){
             this.cells[x][y] = marker;
+            return true;
         } else {
-            System.out.println(this.cells[x][y]);
+            System.out.println("Illegal move");
+            return false;
         }
     }
 
