@@ -19,4 +19,25 @@ class BoardTest {
         board.place(0,0,'O');
         assertEquals('X', board.cells[0][0]);
     }
+
+    @Test
+    void US02_boardReflectsPlacedMarker() {
+        Board board = new Board();
+        board.place(1,1, 'X');
+        assertEquals('X', board.cells[1][1]);
+    }
+
+    @Test
+    void US02_boardIsEmptyAtStart() {
+        Board board = new Board();
+        for (int i = 0; i < board.cells.length; i++){
+            for (int j = 0; j < board.cells[i].length; j++){
+                assertTrue(board.isCellEmpty(i,j));
+                assertEquals('\0', board.cells[i][j]);
+            }
+        }
+    }
+
+
+
 }
