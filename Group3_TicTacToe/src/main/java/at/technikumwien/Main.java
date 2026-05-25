@@ -49,6 +49,7 @@ public class Main {
             } else {
                 playAgain = false;
             }
+
         }
 
         System.out.println("Thanks for playing!");
