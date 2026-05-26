@@ -7,32 +7,34 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("*** Tic Tac Toe *** \n");
+        // game initialize - newGame holds player and board data
+        TicTacToe newGame = new TicTacToe();
+        newGame.player1 = new Player('X');
+        newGame.player2 = new Player('O');
+        newGame.board = new Board();
 
-        Board board = new Board();
-        Player player1 = new Player('X');
-        Player player2 = new Player('O');
+        // print msg
+        newGame.start();
 
-        System.out.println(player1.getMarker());
+        // game loop - place holder - 9 possible moves in total - has to be updated to
+        int turnCounter = 0;
 
-        System.out.println();
-        System.out.printf("Current Player: %c\n", player1.getMarker());
-        board.print();
+        while (turnCounter <= 9){
+            System.out.println("Current Player: " + newGame.currentPlayer.getMarker());
+            newGame.board.print();
 
-        System.out.println("row (0-2): ");
-        int inputRow = sc.nextInt();
-        System.out.println("col (0-2): ");
-        int inputCol = sc.nextInt();
+            boolean legalMove;
+            do {
+                System.out.println("row (0-2): ");
+                int rowInput = sc.nextInt();    // no wrong Input check
+                System.out.println("col (0-2): ");
+                int colInput = sc.nextInt();    // no wrong Input check
+                legalMove = newGame.board.place(rowInput, colInput, newGame.currentPlayer.getMarker());
+            } while(!legalMove);
 
-        board.place(inputRow, inputCol, player1.getMarker());
-        board.print();
 
-
+            newGame.switchCurrentPlayer();
+            turnCounter++;
+        }
     }
-
-    public static void startGame(){
-        Board startBoard = new Board();
-        startBoard.print();
-    }
-
 }
