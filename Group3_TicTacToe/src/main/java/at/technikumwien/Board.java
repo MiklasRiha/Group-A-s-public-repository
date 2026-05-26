@@ -20,8 +20,14 @@ public class Board {
         }
     }
 
-    public void place (int x, int y, char marker){
-        this.cells[x][y] = marker;
+    public boolean place (int x, int y, char marker){
+        if (isCellEmpty(x,y)){
+            this.cells[x][y] = marker;
+            return true;
+        } else {
+            System.out.println("Illegal move");
+            return false;
+        }
     }
 
     public boolean isFull() {
