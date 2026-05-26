@@ -14,6 +14,7 @@ class BoardTest {
         Board board = new Board();
 
         assertTrue(board.isCellEmpty(0, 0));
+        }
     }
 
     @Test
@@ -52,7 +53,7 @@ class BoardTest {
     }
 
 
-
+    @Test
     void placeStoresMarkerInSelectedCell() {
         Board board = new Board();
 
