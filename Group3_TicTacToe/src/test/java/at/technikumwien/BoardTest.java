@@ -9,12 +9,14 @@ class BoardTest {
     @Test
     void US01_placeMarkerOnEmptySquare() {
         Board board = new Board();
-        board.place(0,0,'X');
+        board.place(0, 0, 'X');
+    }
+
+    @Test
     void isCellEmptyReturnsTrueForEmptyCell() {
         Board board = new Board();
 
         assertTrue(board.isCellEmpty(0, 0));
-        }
     }
 
     @Test
