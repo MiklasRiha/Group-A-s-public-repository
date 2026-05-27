@@ -90,4 +90,36 @@ class BoardTest {
 
         assertTrue(board.isFull());
     }
+    @Test
+    void hasWinnerReturnsTrueForFullColumn() {
+        Board board = new Board();
+
+        board.place(0, 1, 'O');
+        board.place(1, 1, 'O');
+        board.place(2, 1, 'O');
+
+        assertTrue(board.hasWinner('O'));
+    }
+
+    @Test
+    void hasWinnerReturnsFalseWhenMarkerHasNoWinningLine() {
+        Board board = new Board();
+
+        board.place(0, 0, 'X');
+        board.place(0, 1, 'O');
+        board.place(1, 1, 'X');
+
+        assertFalse(board.hasWinner('X'));
+    }
+
+    @Test
+    void hasWinnerReturnsTrueForFullDiagonal() {
+        Board board = new Board();
+
+        board.place(0, 0, 'X');
+        board.place(1, 1, 'X');
+        board.place(2, 2, 'X');
+
+        assertTrue(board.hasWinner('X'));
+    }
 }
