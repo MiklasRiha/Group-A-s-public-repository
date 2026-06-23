@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        startGame();
+
+    }
+
+    private static void startGame(){
         Scanner sc = new Scanner(System.in);
 
         TicTacToe newGame = new TicTacToe();
@@ -35,12 +40,19 @@ public class Main {
             if (newGame.isGameOver()) {
                 newGame.board.print();
                 newGame.printGameEndNotification();
+
+                System.out.println("Play again? (y/n): ");
+                String playAgain = sc.next();
+
+                if(playAgain.equalsIgnoreCase("y")){
+                    startGame();
+                }
             } else {
                 newGame.switchCurrentPlayer();
             }
         }
-
         sc.close();
+
     }
 
     // Reads a number from the user and checks if it is between 0 and 2.
